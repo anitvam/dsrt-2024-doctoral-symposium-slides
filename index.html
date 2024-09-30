@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta name="generator" content="Hugo 0.135.0">
     <meta charset="utf-8">
-<title>Supporting Autonomic Computing via BDI Tooling</title>
+<title>Validation of BDI MASs via Simulation</title>
 
 <meta name="author" content="Martina Baiardi">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/acsos-2024-phd-slides/reveal-js/dist/reset.css">
-<link rel="stylesheet" href="/acsos-2024-phd-slides/reveal-js/dist/reveal.css">
-  <link rel="stylesheet" href="/acsos-2024-phd-slides/css/custom-theme.min.d8c9db8542f52fc4da0111e0ba662f8115cd4a1237336c64419644d8f44306ce.css" id="theme"><link rel="stylesheet" href="/acsos-2024-phd-slides/highlight-js/solarized-dark.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/reveal.css">
+  <link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/css/custom-theme.min.fac4dbb19c1f99c871aa618a8367c0f0098d46f7bc6be1de8608c58ab7a57a8b.css" id="theme"><link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/highlight-js/solarized-dark.min.css">
 <link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
@@ -23,47 +23,16 @@
       <div class="slides">
   
 
-    <section><h1 id="supporting-autonomic-computing">Supporting Autonomic Computing</h1>
-<h1 id="via-bdi-tooling">via BDI Tooling</h1>
+    <section><h1 id="validation-of-span-classhighlight-bdi-span-mas">Validation of <span class="highlight"> BDI </span> MAS</h1>
+<h1 id="via-simulation">via Simulation</h1>
 <br>
 <p>Martina Baiardi</p>
 <p><small>Department of Computer Science and Engineering (DISI)<br>
 Alma Mater Studiorum — Università di Bologna <br>
 Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
 </section><section>
-<h2 id="context">Context</h2>
-<h4 id="autonomic-computing">Autonomic Computing</h4>
-<br>
-
-<div class="multiCol "><div class="col col-50 "><img src="images/autonomic-diagram.svg" width="100%">
-<div class="mx-5 text-center">
-<h2 id="i-classfa-solid-fa-arrow-upi-mape-k"><em><i class="fa-solid fa-arrow-up"></i> MAPE-K</em></h2>
-<p>Reference <u>model</u> for <em>Autonomic</em> and <em>self-*</em> systems design.</p>
-</div>
-</div>
-<div class="col col-50 "><div class="mx-5 text-center">
-<span class="fragment ">
-  <img src="images/bdi-diagram.svg" width="100%">
-<h2 id="i-classfa-solid-fa-arrow-upi-bdi"><em><i class="fa-solid fa-arrow-up"></i> BDI</em></h2>
-<p>Reference <u>framework</u> (<em>AgentSpeak(L)</em>) for <em>Multi-Agent Systems</em>.</p>
-</span>
-</div>
-</div></div>
-
-
-<span class="fragment ">
-  <div class="position-absolute">
-<iframe src="https://giphy.com/embed/g01ZnwAUvutuK8GIQn" width="100%" height="100%" frameborder="0" class="fixed-top" allowfullscreen=""></iframe>
-<div class="fixed-top " style="color:white">
-<h2 style="color:white"> Why isn't BDI common in autonomic loops? </h2>
-</div>
-</div>
-
-</span>
-
-</section><section>
-<h1 id="bdi">BDI?</h1>
-<h2 id="beliefs-desires-intentions">Beliefs, Desires, Intentions</h2>
+<h1 id="span-classhighlight-bdi-span"><span class="highlight"> BDI </span></h1>
+<h2 id="span-classhighlightbspaneliefs-span-classhighlightdspanesires-span-classhighlightispanntentions"><span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions</h2>
 <br>
 <ul>
 <li>It’s a framework to model Multi-Agent Systems through <em>Goals</em></li>
@@ -89,8 +58,6 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
 </small>
 </div>
 </section><section>
-<h2 id="agentspeakl-under-the-hood">AgentSpeak(L) under the hood…</h2>
-<img src="images/architecture.png" width="50%">
 </section><section>
 <h1 id="mape-k-vs-bdi-key-differences">MAPE-K vs. BDI: Key differences</h1>
 <h3 id="conceptual-vs-practical">Conceptual vs. practical</h3>
@@ -191,7 +158,7 @@ High maintenance cost!</p>
 </div>
 </div></section><section>
 <h1 id="a-hybrid-approach">A hybrid approach</h1>
-<figure><img src="/acsos-2024-phd-slides/ergonomy.png" width="60%">
+<figure><img src="/dsrt-2024-doctoral-symposium-slides/ergonomy.png" width="60%">
 </figure>
 
 </section><section>
@@ -248,7 +215,7 @@ High maintenance cost!</p>
 </ul>
 </li>
 </ul>
-<figure><img src="/acsos-2024-phd-slides/android-kotlin.png" width="70%">
+<figure><img src="/dsrt-2024-doctoral-symposium-slides/android-kotlin.png" width="70%">
 </figure>
 </div></div>
 </section><section>
@@ -294,7 +261,11 @@ High maintenance cost!</p>
 <br>
 <p><a href="https://github.com/jakta-bdi/jakta-examples">github.com/jakta-bdi/jakta-examples</a></p>
 <img src="images/qr-code.svg" width="20%">
-</section>
+</section><section>
+<h2 id="thank-you">Thank you!</h2>
+</section><section>
+<h2 id="agentspeakl-under-the-hood">AgentSpeak(L) under the hood…</h2>
+<img src="images/architecture.png" width="50%"></section>
 
   
 
@@ -303,28 +274,28 @@ High maintenance cost!</p>
       
 
     </div>
-<script type="text/javascript" src="/acsos-2024-phd-slides/reveal-hugo/object-assign.js"></script>
+<script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-hugo/object-assign.js"></script>
 
-<a href="/acsos-2024-phd-slides/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
+<a href="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
 
 <script type="application/json" id="reveal-hugo-site-params">{"custom_theme":"custom-theme.scss","custom_theme_compile":true,"custom_theme_options":{"enablesourcemap":true,"targetpath":"css/custom-theme.css"},"height":"1080","highlight_theme":"solarized-dark","history":true,"mermaid":[{}],"slide_number":true,"theme":"league","transition":"slide","transition_speed":"fast","width":"1920"}</script>
 <script type="application/json" id="reveal-hugo-page-params">null</script>
 
-<script src="/acsos-2024-phd-slides/reveal-js/dist/reveal.js"></script>
+<script src="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/reveal.js"></script>
 
 
   
   
-  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/markdown/markdown.js"></script>
+  <script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-js/plugin/markdown/markdown.js"></script>
   
-  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/highlight/highlight.js"></script>
+  <script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-js/plugin/highlight/highlight.js"></script>
   
-  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/zoom/zoom.js"></script>
+  <script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-js/plugin/zoom/zoom.js"></script>
   
-  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/notes/notes.js"></script>
+  <script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-js/plugin/notes/notes.js"></script>
   
   
-  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/notes/notes.js"></script>
+  <script type="text/javascript" src="/dsrt-2024-doctoral-symposium-slides/reveal-js/plugin/notes/notes.js"></script>
 
 
 
