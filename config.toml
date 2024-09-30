@@ -1,4 +1,4 @@
-baseURL = "https://anitvam.github.io/acsos-2024-phd-slides"
+baseURL = "https://anitvam.github.io/dsrt-2024-doctoral-symposium-slides"
 languageCode = "en-us"
 title = "Supporting Autonomic Computing via BDI Tooling"
 disableKinds = ["sitemap", "RSS"]

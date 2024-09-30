@@ -1,10 +1,10 @@
 +++
-title = "Supporting Autonomic Computing via BDI Tooling"
+title = "Validation of BDI MASs via Simulation"
 outputs = ["Reveal"]
 +++
 
-# Supporting Autonomic Computing 
-# via BDI Tooling
+# Validation of <span class="highlight"> BDI </span> MAS 
+# via Simulation
 
 <br>
 
@@ -16,57 +16,9 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
-## Context
-#### Autonomic Computing
+# <span class="highlight"> BDI </span>
 
-<br/>
-
-{{% multicol %}}{{% col %}}
-
-<img src="images/autonomic-diagram.svg" width="100%" />
-
-<div class="mx-5 text-center">
-
-## *<i class="fa-solid fa-arrow-up"></i> MAPE-K* 
-Reference <u>model</u> for *Autonomic* and *self-\** systems design. 
-
-</div>
-
-{{% /col %}}{{% col  %}}
-
-<div class="mx-5 text-center">
-
-{{% fragment %}}
-
-<img src="images/bdi-diagram.svg" width="100%" />
-
-## *<i class="fa-solid fa-arrow-up"></i> BDI* 
-Reference <u>framework</u> (*AgentSpeak(L)*) for *Multi-Agent Systems*. 
-
-{{% /fragment %}}
-
-</div>
-
-{{% /col %}}{{% /multicol %}}
-
-{{% fragment %}}
-<div class="position-absolute">
-<iframe src="https://giphy.com/embed/g01ZnwAUvutuK8GIQn" width="100%" height="100%" frameBorder="0" class="fixed-top" allowFullScreen></iframe>
-
-<div class="fixed-top " style="color:white">
-
-<h2 style="color:white"> Why isn't BDI common in autonomic loops? </h2>
-
-</div>
-
-</div>
-{{% /fragment %}}
-
----
-
-# BDI?
-
-## Beliefs, Desires, Intentions
+## <span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions
 
 <br />
 
@@ -94,9 +46,8 @@ Reference <u>framework</u> (*AgentSpeak(L)*) for *Multi-Agent Systems*.
 
 ---
 
-## AgentSpeak(L) under the hood...
 
-<img src="images/architecture.png" width=50% />
+
 
 ---
 
@@ -300,3 +251,12 @@ JaKtA is still in its early stages, in the future we plan to:
 
 <img src="images/qr-code.svg" width="20%" />
 
+---
+
+## Thank you!
+
+---
+
+## AgentSpeak(L) under the hood...
+
+<img src="images/architecture.png" width=50% />

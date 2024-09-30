@@ -32,6 +32,8 @@ $backgroundColor: #EFF1ED;
 $mainColor: #222;
 $headingColor: #222;
 
+$highlightColor: #3f4788;
+
 $mainFontSize: 2em;
 // $mainFont: 'Roboto', sans-serif;
 // $headingFont: 'Roboto', sans-serif;
@@ -78,7 +80,7 @@ section.has-light-background {
 
 .reveal em {
 	font-style: italic;
-	color: #26736aff;
+	color: $highlightColor;
 }
 
 .reveal section img {
@@ -221,6 +223,10 @@ kbd {
 	width: 100%;
 }
 
+.highlight {
+	color: $highlightColor;
+}
+
 .col-25 {
 	width: 25%;
 }
@@ -268,7 +274,7 @@ kbd {
 }
 
 .reveal .slide-background:after {
-	content: "M. Baiardi - Supporting Autonomic Computing via BDI Tooling - ACSOS PhD Symposium 2024";
+	content: "M. Baiardi - Supporting Autonomic Computing via BDI Tooling - DSRT PhD Symposium 2024";
 	position: absolute;
 	bottom: 2.5%;
 	left: 13%;
