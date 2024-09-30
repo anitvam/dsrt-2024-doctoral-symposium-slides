@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta name="generator" content="Hugo 0.135.0">
+    <meta charset="utf-8">
+<title>Supporting Autonomic Computing via BDI Tooling</title>
+
+<meta name="author" content="Martina Baiardi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/acsos-2024-phd-slides/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/acsos-2024-phd-slides/reveal-js/dist/reveal.css">
+  <link rel="stylesheet" href="/acsos-2024-phd-slides/css/custom-theme.min.d8c9db8542f52fc4da0111e0ba662f8115cd4a1237336c64419644d8f44306ce.css" id="theme"><link rel="stylesheet" href="/acsos-2024-phd-slides/highlight-js/solarized-dark.min.css">
+<link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu Mono" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/81ac037be0.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h1 id="supporting-autonomic-computing">Supporting Autonomic Computing</h1>
+<h1 id="via-bdi-tooling">via BDI Tooling</h1>
+<br>
+<p>Martina Baiardi</p>
+<p><small>Department of Computer Science and Engineering (DISI)<br>
+Alma Mater Studiorum — Università di Bologna <br>
+Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
+</section><section>
+<h2 id="context">Context</h2>
+<h4 id="autonomic-computing">Autonomic Computing</h4>
+<br>
+
+<div class="multiCol "><div class="col col-50 "><img src="images/autonomic-diagram.svg" width="100%">
+<div class="mx-5 text-center">
+<h2 id="i-classfa-solid-fa-arrow-upi-mape-k"><em><i class="fa-solid fa-arrow-up"></i> MAPE-K</em></h2>
+<p>Reference <u>model</u> for <em>Autonomic</em> and <em>self-*</em> systems design.</p>
+</div>
+</div>
+<div class="col col-50 "><div class="mx-5 text-center">
+<span class="fragment ">
+  <img src="images/bdi-diagram.svg" width="100%">
+<h2 id="i-classfa-solid-fa-arrow-upi-bdi"><em><i class="fa-solid fa-arrow-up"></i> BDI</em></h2>
+<p>Reference <u>framework</u> (<em>AgentSpeak(L)</em>) for <em>Multi-Agent Systems</em>.</p>
+</span>
+</div>
+</div></div>
+
+
+<span class="fragment ">
+  <div class="position-absolute">
+<iframe src="https://giphy.com/embed/g01ZnwAUvutuK8GIQn" width="100%" height="100%" frameborder="0" class="fixed-top" allowfullscreen=""></iframe>
+<div class="fixed-top " style="color:white">
+<h2 style="color:white"> Why isn't BDI common in autonomic loops? </h2>
+</div>
+</div>
+
+</span>
+
+</section><section>
+<h1 id="bdi">BDI?</h1>
+<h2 id="beliefs-desires-intentions">Beliefs, Desires, Intentions</h2>
+<br>
+<ul>
+<li>It’s a framework to model Multi-Agent Systems through <em>Goals</em></li>
+<li>Reduces the <em>abstraction gap</em> between <em>cognitive abstractions</em> and the abstractions of common paradigms
+<ul>
+<li>Mimicking human-level notions such as <em>beliefs</em>, <em>desires</em> and <em>intentions</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="three-main-abstractions">three main abstractions:</h3>
+<ul>
+<li><em>Beliefs</em>: mental state of the agent, that changes over time.</li>
+<li><em>Desires</em>: motivational state of the system.</li>
+<li><em>Intentions</em>: deliberative state of the agent.</li>
+</ul>
+<div>
+<br>
+<small style="text-align: left"> 
+--- <br>
+[1] Bratman, Michael. "Intention, plans, and practical reason." (1987) <br>
+[2] Anand S. Rao and Michael P. Georgeff. "BDI agents: From theory to practice." (1995) <br>
+[3] Anand S. Rao. "Agentspeak(l): BDI agents speak out in a logical computable language." (1996) 
+</small>
+</div>
+</section><section>
+<h2 id="agentspeakl-under-the-hood">AgentSpeak(L) under the hood…</h2>
+<img src="images/architecture.png" width="50%">
+</section><section>
+<h1 id="mape-k-vs-bdi-key-differences">MAPE-K vs. BDI: Key differences</h1>
+<h3 id="conceptual-vs-practical">Conceptual vs. practical</h3>
+<ul>
+<li><strong>MAPE-K</strong> defines a conceptual model, needs application-specific implementations
+<ul>
+<li>favors ad-hoc implementations</li>
+</ul>
+</li>
+<li><strong>BDI</strong> is typically reified into a practical tool (a language or library)
+<ul>
+<li>enforces commitment to a technology</li>
+</ul>
+</li>
+</ul>
+<h3 id="architectural-vs-formal">Architectural vs. formal</h3>
+<ul>
+<li><strong>MAPE-K</strong> defines a reasoning architecture and a loop scheme</li>
+<li><strong>BDI</strong> has been formalised into AgentSpeak(L)
+<ul>
+<li>Typical implementations adhere to the formal specification</li>
+</ul>
+</li>
+</ul>
+<h3 id="simple-vs-complex">Simple vs. complex</h3>
+<ul>
+<li><strong>MAPE-K</strong> is simpler
+<ul>
+<li>can be implemented on a per-application basis</li>
+</ul>
+</li>
+<li><strong>BDI</strong> requires complex matching ad plan-selection algorithms
+<ul>
+<li>hard to build from scratch in a custom fashion</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h1 id="bdi-agent-programming-languages">BDI Agent Programming Languages</h1>
+
+
+<span class="fragment ">
+  <h3 id="-some-of-them">… some of them</h3>
+
+</span>
+
+<br>
+<figure><img src="images/AOPlang.svg" width="50%">
+</figure>
+
+<br>
+<div>
+<small style="text-align: left"> 
+[1] Collier, R.W., Russell, S.E., Lillis, D.. "Reflecting on agent programming with AgentSpeak(L). I" (2015) <br>
+[2] Hindriks, K.V.. "Programming rational agents in GOAL." (2009) <br>
+[3] Pokahr, A., Braubach, L., Lamersdorf, W.. "Jadex: A BDI reasoning engine." (2005) <br>
+[4] Bordini, R.H., Hübner, J.F., Wooldridge, M.J.. "Programming Multi-Agent Systems in AgentSpeak using Jason." (2007) <br>
+[5] D’Urso, F., Longo, C.F., Santoro, C.. "Programming intelligent iot systems with a python-based declarative tool." (2019) <br>
+[6] Palanca, J., Rincon, J.A., Carrascosa, C., Julián, V., Terrasa, A.. "A flexible agent architecture in SPADE." (2022)
+</small>
+</div>
+</section><section>
+<h1 id="majority-of-bdi-tools-libraries">Majority of BDI tools: Libraries</h1>
+<br>
+<br>
+
+<div class="multiCol text-center"><div class="col col-50 col-75">
+<ul>
+<li>Built for mainstream languages</li>
+<li>Subject to the <em>syntactic restrictions</em> of their host language
+<ul>
+<li>“True” AOP/BDI feeling hardly achieved</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col col-50 col-25">
+<span class="fragment ">
+<h2 id="i-classfa-solid-fa-arrow-righti-custom-language"><i class="fa-solid fa-arrow-right"></i> <em>custom language</em></h2>
+</span>
+</div> </div>
+</section><section>
+<h1 id="aop-custom-languages">AOP Custom Languages</h1>
+<div>
+<div class=" w-50 m-auto text-right" style="text-align: left">
+<p><i class="fa-solid fa-check" style="color: green; margin-right: 10px"></i>
+Great ergonomy for BDI AOP (made by purpose)</p>
+<p><i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
+BDI-specific, not multi-paradigm</p>
+<p><i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
+Steep learning curve</p>
+<p><i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
+Require custom tooling - IDEs, code suggestions, syntax highlighters, linters…</p>
+<p><i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
+Small community</p>
+<p><i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
+High maintenance cost!</p>
+</div>
+</div></section><section>
+<h1 id="a-hybrid-approach">A hybrid approach</h1>
+<figure><img src="/acsos-2024-phd-slides/ergonomy.png" width="60%">
+</figure>
+
+</section><section>
+<h1 id="jakta-br-ujauson-like-ukuoutulin-uaugents-1">JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents [1]</h1>
+<p>Internal Domain-Specific Language (DSL) implemented in Kotlin</p>
+<ul>
+<li>Multi-paradigm support: OOP + FP + BDI AOP</li>
+<li>Hosted on a mainstream language: gentle learning curve
+<ul>
+<li>Great learning resources for Kotlin</li>
+<li>Significantly large community for help</li>
+</ul>
+</li>
+<li>Reuses the entire existing Kotlin toolchain
+<ul>
+<li>Developed and <em>maintained</em> by the language maintainers and the community</li>
+<li>Maintenance is greatly reduced</li>
+</ul>
+</li>
+<li>Good ergonomy</li>
+</ul>
+<br>
+<br>
+<div>
+<small style="text-align: left"> 
+---<br>
+[1] Baiardi, M., Burattini, S., Ciatto, G., &amp; Pianini, D. (2023, September). JaKtA: BDI Agent-Oriented Programming in Pure Kotlin. 
+</small>
+</div>
+</section><section>
+<h1 id="why-kotlin">Why kotlin?</h1>
+<br>
+
+<div class="multiCol "><div class="col col-50 "><ul>
+<li>Natively multi-paradigm (OOP + FP)</li>
+<li>Statically typed
+<ul>
+<li>With a good IDE, helps understanding what can be written where</li>
+</ul>
+</li>
+<li>Direct support to internal DSLs
+<ul>
+<li>a.k.a “Type-safe builders” in the Kotlin documentation</li>
+</ul>
+</li>
+<li>Support for multiplatform development</li>
+</ul>
+</div>
+<div class="col col-50 text-center">
+<ul>
+<li>Growing community
+<ul>
+<li>Strongly pushed by Google for Android</li>
+</ul>
+</li>
+</ul>
+<figure><img src="/acsos-2024-phd-slides/android-kotlin.png" width="70%">
+</figure>
+</div></div>
+</section><section>
+<h2 id="jakta-multi-paradigm-aopbdioopfp">Jakta: multi-paradigm AOP/BDI+OOP+FP</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#000">mas</span> <span style="color:#000;font-weight:bold">{</span>                                                   <span style="color:#8f5902;font-style:italic">// BDI specification
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">allPlayers</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">String</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Regex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"""&lt;a\s(\X*?)\sdata-cy="player"&gt;(.*)&lt;\/a&gt;"""</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">// Object-oriented regex library
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">.</span><span style="color:#000">findAll</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">URL</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"https://www.besoccer.com/team/squad/</span><span style="color:#4e9a06">$team</span><span style="color:#4e9a06">"</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">readText</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">.</span><span style="color:#000">map</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">team</span> <span style="color:#000">to</span> <span style="color:#204a87;font-weight:bold">it</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">groupValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>              <span style="color:#8f5902;font-style:italic">// Lambda expression (Functional style)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">listOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"napoli"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">"milan"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">"internazionale"</span><span style="color:#000;font-weight:bold">)</span>           <span style="color:#8f5902;font-style:italic">// Kotlin standard library
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">.</span><span style="color:#000">flatMap</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">allPlayers</span><span style="color:#000;font-weight:bold">)</span>                            <span style="color:#8f5902;font-style:italic">// Higher-order function (Functional style)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">player</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span>                      <span style="color:#8f5902;font-style:italic">// Destructuring declaration
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#000">agent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">player</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">beliefs</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">fact</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">squad</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">goals</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">achieve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">plans</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">+</span><span style="color:#000">achieve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">onlyIf</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">squad</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">fromSelf</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#000">then</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#000">execute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"Hello! I play for"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}.</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">()</span>
+</span></span></code></pre></div></section><section>
+<h2 id="future-work">Future work</h2>
+<p>JaKtA is still in its early stages, in the future we plan to:</p>
+<ul>
+<li>Provide stable tools to emulate dynamic environments (<strong>Simulation</strong>)
+<ul>
+<li>Validate the integration with an application, e.g.: drone swarm coordination (<strong>Use case</strong>)</li>
+</ul>
+</li>
+<li>Expose BDI abstractions within the debugger for helping bug inspection (<strong>Debug</strong>)</li>
+<li>Use BDI abstractions in small fragments of non-BDI programs (<strong>Bidirectional paradigm blending</strong>)
+<ul>
+<li>(we can already use fragments of functional and OOP inside a BDI program)</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h1 id="try-jakta">try jakta</h1>
+<br>
+<p><a href="https://github.com/jakta-bdi/jakta-examples">github.com/jakta-bdi/jakta-examples</a></p>
+<img src="images/qr-code.svg" width="20%">
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src="/acsos-2024-phd-slides/reveal-hugo/object-assign.js"></script>
+
+<a href="/acsos-2024-phd-slides/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
+
+<script type="application/json" id="reveal-hugo-site-params">{"custom_theme":"custom-theme.scss","custom_theme_compile":true,"custom_theme_options":{"enablesourcemap":true,"targetpath":"css/custom-theme.css"},"height":"1080","highlight_theme":"solarized-dark","history":true,"mermaid":[{}],"slide_number":true,"theme":"league","transition":"slide","transition_speed":"fast","width":"1920"}</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/acsos-2024-phd-slides/reveal-js/dist/reveal.js"></script>
+
+
+  
+  
+  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/notes/notes.js"></script>
+  
+  
+  <script type="text/javascript" src="/acsos-2024-phd-slides/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+
+  var revealHugoPlugins = { 
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+   };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<script>
+  if (/.*?(\?|&)print-pdf/.test(window.location.toString())) {
+      var ytVideos = document.getElementsByTagName("iframe")
+      for (let i = 0; i < ytVideos.length; i++) {
+          var videoFrame = ytVideos[i]
+          var isYouTube = /^https?:\/\/(www.)youtube\.com\/.*/.test(videoFrame.src)
+          if (isYouTube) {
+              console.log(`Removing ${videoFrame.src}`)
+              var parent = videoFrame.parentElement
+              videoFrame.remove()
+              var p = document.createElement('p')
+              p.append(
+                  document.createTextNode(
+                      "There was an embedded video here, but it is disabled in the printed version of the slides."
+                  )
+              )
+              p.append(document.createElement('br'))
+              p.append(
+                  document.createTextNode(
+                      `Visit instead ${
+                          videoFrame.src
+                      } or ${
+                          videoFrame.src.replace(
+                              /(^https?:\/\/(www.)youtube\.com)\/(embed\/)(\w+).*/,
+                              "https://www.youtube.com/watch?v=$4"
+                          )
+                      }`
+                  )
+              )
+              parent.appendChild(p)
+          }
+      }
+  }
+</script>
+
+
+    
+  
+
+</body></html>
