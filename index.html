@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/reset.css">
 <link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/reveal-js/dist/reveal.css">
-  <link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/css/custom-theme.min.fac4dbb19c1f99c871aa618a8367c0f0098d46f7bc6be1de8608c58ab7a57a8b.css" id="theme"><link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/highlight-js/solarized-dark.min.css">
+  <link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/css/custom-theme.min.0b50add79d71cf2a7a50cf492bf601e0eb655f1100ac98a70f6a88ce92b66991.css" id="theme"><link rel="stylesheet" href="/dsrt-2024-doctoral-symposium-slides/highlight-js/solarized-dark.min.css">
 <link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
@@ -58,43 +58,93 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
 </small>
 </div>
 </section><section>
+
+<div class="multiCol "><div class="col col-50 text-center"><img src="images/lab.png">
+<h2 id="development-and-testing">development and testing</h2>
+</div>
+<div class="col col-50 text-center"><span class="fragment ">
+  <span style="font-size:200px">
+  <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
+  <span class="highlight">?</span> 
+  <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
+</span>
+</span>
+<span class="fragment ">
+  <h2 id="span-classhighlight-how-can-i-ensure-the-system-will-work-as-expected-and-automatically"><span class="highlight"> How can I ensure the system will work as expected (and automatically)?</span></h2>
+</span>
+</div>
+<div class="col col-50 text-center"><img src="images/deploy.png">
+<h2 id="deployment">deployment</h2>
+</div>
+</div>
 </section><section>
-<h1 id="mape-k-vs-bdi-key-differences">MAPE-K vs. BDI: Key differences</h1>
-<h3 id="conceptual-vs-practical">Conceptual vs. practical</h3>
+<h1 id="simulation-as-a-validation-tool-for-bdi-systems">Simulation as a Validation tool for BDI systems</h1>
+<br>
+
+<div class="multiCol "><div class="col col-50 "><p>Not a new idea, but …</p>
 <ul>
-<li><strong>MAPE-K</strong> defines a conceptual model, needs application-specific implementations
-<ul>
-<li>favors ad-hoc implementations</li>
+<li>There are not many tools that allows to <em>switch arbitrarily</em> between execution and simulation</li>
 </ul>
-</li>
-<li><strong>BDI</strong> is typically reified into a practical tool (a language or library)
+</div>
+<div class="col col-50 text-center"><h2 id="span-classhighlight-i-want-to-simulate-the-exact-codebase-that-will-run-in-the-deployment-span"><span class="highlight"> I want to simulate the exact codebase that will run in the deployment </span></h2>
+</div>
+</div>
+</section><section>
+<h1 id="proposal--research-questions">Proposal &amp; Research questions</h1>
 <ul>
-<li>enforces commitment to a technology</li>
-</ul>
-</li>
-</ul>
-<h3 id="architectural-vs-formal">Architectural vs. formal</h3>
+<li>
+<p>A tool that offers BDI abstractions, capable to run in a simulator <em>seamlessly</em>.</p>
+<p>This proposal raises several questions that need to be investigated:</p>
 <ul>
-<li><strong>MAPE-K</strong> defines a reasoning architecture and a loop scheme</li>
-<li><strong>BDI</strong> has been formalised into AgentSpeak(L)
+<li>How BDI events can be captured in simulation? <em>DES</em> vs.<em>DTS</em></li>
+<li>At which <em>granularity</em> should the BDI lifecycle <em>events</em> be captured in simulation abstractions?</li>
+<li>How to model the interaction with <em>environmental sources of change</em>?</li>
+<li>How to preserve <em>determinism</em> to reproduce source of errors?</li>
+<li>How to model <em>inter-agent communication</em> in a simulated environment?</li>
+<li>Which tools are suitable for this integration?
 <ul>
-<li>Typical implementations adhere to the formal specification</li>
-</ul>
-</li>
-</ul>
-<h3 id="simple-vs-complex">Simple vs. complex</h3>
-<ul>
-<li><strong>MAPE-K</strong> is simpler
-<ul>
-<li>can be implemented on a per-application basis</li>
-</ul>
-</li>
-<li><strong>BDI</strong> requires complex matching ad plan-selection algorithms
-<ul>
-<li>hard to build from scratch in a custom fashion</li>
+<li>The BDI tool must be <em>modular</em> to allow its execution inside a simulator</li>
+<li>The simulator abstractions must be <em>flexible</em> enough to model BDI upon it</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</section><section>
+<h1 id="current-results">Current Results</h1>
+<p>We provide an initial answer to these question through a practical prototype integrating the <em>JaKtA</em> BDI framework with the <em>Alchemist</em> simulator,
+showing that integration with no code changes to the BDI specification is feasible.</p>
+
+<div class="multiCol "><div class="col col-50 "><h3 id="jakta-br-ujauson-like-ukuoutulin-uaugents-1">JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents [1]</h3>
+<p>Internal Domain-Specific Language (DSL) implemented in Kotlin</p>
+<ul>
+<li>Multi-paradigm support: OOP + FP + BDI AOP</li>
+<li>Hosted on a mainstream language: gentle learning curve
+<ul>
+<li>Great learning resources for Kotlin</li>
+<li>Significantly large community for help</li>
+</ul>
+</li>
+<li>Reuses the entire existing Kotlin toolchain
+<ul>
+<li>Developed and <em>maintained</em> by the language maintainers and the community</li>
+<li>Maintenance is greatly reduced</li>
+</ul>
+</li>
+<li>Good ergonomy</li>
+</ul>
+<br>
+<br>
+<div>
+<small style="text-align: left"> 
+---<br>
+[1] Baiardi, M., Burattini, S., Ciatto, G., &amp; Pianini, D. (2023, September). JaKtA: BDI Agent-Oriented Programming in Pure Kotlin. 
+</small>
+</div>
+</div>
+<div class="col col-50 "><h3 id="alchemist">Alchemist</h3>
+</div>
+</div>
 </section><section>
 <h1 id="bdi-agent-programming-languages">BDI Agent Programming Languages</h1>
 
