@@ -46,32 +46,122 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
+{{% multicol %}}
+{{% col class="text-center" %}}
+<img src="images/lab.png" />
 
+## development and testing
+
+{{% /col %}}
+{{% col class="text-center"  %}}
+
+{{% fragment %}}
+
+<span style="font-size:200px">
+  <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
+  <span class="highlight" >?</span> 
+  <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
+</span>
+
+{{% /fragment %}}
+
+{{% fragment %}}
+
+## <span class="highlight"> How can I ensure the system will work as expected (and automatically)?
+
+{{% /fragment %}}
+
+
+{{% /col %}}
+{{% col class="text-center" %}}
+<img src="images/deploy.png" />
+
+## deployment
+
+{{% /col %}}
+{{% /multicol %}}
+
+---
+
+# Simulation as a Validation tool for BDI systems
+
+<br />
+
+{{% multicol %}}
+{{% col %}}
+
+Not a new idea, but ...
+
+- There are not many tools that allows to *switch arbitrarily* between execution and simulation
+
+
+
+{{% /col %}}
+{{% col class="text-center"  %}}
+
+## <span class="highlight"> I want to simulate the exact codebase that will run in the deployment </span>
+
+{{% /col %}}
+{{% /multicol %}}
 
 
 ---
 
-# MAPE-K vs. BDI: Key differences
+# Proposal & Research questions
 
-### Conceptual vs. practical
 
-* **MAPE-K** defines a conceptual model, needs application-specific implementations
-    * favors ad-hoc implementations
-* **BDI** is typically reified into a practical tool (a language or library)
-    * enforces commitment to a technology
+* A tool that offers BDI abstractions, capable to run in a simulator *seamlessly*. 
+  
+  This proposal raises several questions that need to be investigated:
 
-### Architectural vs. formal
+  - How BDI events can be captured in simulation? *DES* vs.*DTS* 
+  - At which *granularity* should the BDI lifecycle *events* be captured in simulation abstractions?
+  - How to model the interaction with *environmental sources of change*?
+  - How to preserve *determinism* to reproduce source of errors?
+  - How to model *inter-agent communication* in a simulated environment?
+  - Which tools are suitable for this integration?
+    - The BDI tool must be *modular* to allow its execution inside a simulator
+    - The simulator abstractions must be *flexible* enough to model BDI upon it
 
-* **MAPE-K** defines a reasoning architecture and a loop scheme
-* **BDI** has been formalised into AgentSpeak(L)
-    * Typical implementations adhere to the formal specification
+---
 
-### Simple vs. complex
+# Current Results
 
-* **MAPE-K** is simpler
-    * can be implemented on a per-application basis
-* **BDI** requires complex matching ad plan-selection algorithms
-    * hard to build from scratch in a custom fashion
+We provide an initial answer to these question through a practical prototype integrating the *JaKtA* BDI framework with the *Alchemist* simulator, 
+showing that integration with no code changes to the BDI specification is feasible.
+
+{{% multicol %}}
+{{% col %}}
+
+### JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents [1]
+
+Internal Domain-Specific Language (DSL) implemented in Kotlin
+
+* Multi-paradigm support: OOP + FP + BDI AOP
+* Hosted on a mainstream language: gentle learning curve
+  * Great learning resources for Kotlin
+  * Significantly large community for help
+* Reuses the entire existing Kotlin toolchain
+  * Developed and *maintained* by the language maintainers and the community
+  * Maintenance is greatly reduced
+* Good ergonomy
+
+<br />
+<br />
+
+<div>
+<small style="text-align: left"> 
+---<br/>
+[1] Baiardi, M., Burattini, S., Ciatto, G., & Pianini, D. (2023, September). JaKtA: BDI Agent-Oriented Programming in Pure Kotlin. 
+</small>
+</div>
+
+{{% /col %}}
+
+{{% col %}}
+### Alchemist
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
