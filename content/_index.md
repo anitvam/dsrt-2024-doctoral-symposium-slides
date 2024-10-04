@@ -20,11 +20,31 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ## <span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions
 
-<br />
+
+{{% multicol %}}
+{{% col %}}
 
 - It's a framework to model Multi-Agent Systems through *Goals*
 - Reduces the *abstraction gap* between *cognitive abstractions* and the abstractions of common paradigms
   - Mimicking human-level notions such as *beliefs*, *desires* and *intentions*
+
+{{% /col %}}
+{{% col class="text-center"  %}}
+
+<img src="images/path43-7.svg" width="70%"/>
+
+{{% /col %}}
+{{% /multicol %}}
+
+---
+# <span class="highlight"> BDI </span>
+
+## <span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions
+
+<br/>
+
+{{% multicol %}}
+{{% col class="text-center" %}}
 
 ### three main abstractions:
 
@@ -32,14 +52,28 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 - *Desires*: motivational state of the system.
 - *Intentions*: deliberative state of the agent.
 
+{{% /col %}}
+{{% col class="text-center" %}}
+
+{{% fragment %}}
+
+## Under the hood...
+
+<img src="images/architecture.png" width=60% />
+
+
+{{% /fragment %}}
+
+{{% /col %}}
+{{% /multicol %}}
+
 <div>
-<br />
 
 <small style="text-align: left"> 
 --- <br/>
 [1] Bratman, Michael. "Intention, plans, and practical reason." (1987) <br />
 [2] Anand S. Rao and Michael P. Georgeff. "BDI agents: From theory to practice." (1995) <br />
-[3] Anand S. Rao. "Agentspeak(l): BDI agents speak out in a logical computable language." (1996) 
+[3] Anand S. Rao. "Agentspeak(L): BDI agents speak out in a logical computable language." (1996) 
 </small>
 </div>
 
@@ -63,14 +97,9 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
   <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
 </span>
 
-{{% /fragment %}}
-
-{{% fragment %}}
-
-## <span class="highlight"> How can I ensure the system will work as expected (and automatically)?
+#### <span class="highlight"> How can I ensure the system <br/>works as expected?
 
 {{% /fragment %}}
-
 
 {{% /col %}}
 {{% col class="text-center" %}}
@@ -83,68 +112,71 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
-# Simulation as a Validation tool for BDI systems
+## Proposal:
+### Simulation as a *validation* tool for BDI systems
 
-<br />
+<br/>
 
-{{% multicol %}}
-{{% col %}}
+Simulate the *exact* BDI MAS codebase that will run in the deployment, <br />
+to determine if the system works as expected.
 
-Not a new idea, but ...
-
-- There are not many tools that allows to *switch arbitrarily* between execution and simulation
-
-
-
-{{% /col %}}
-{{% col class="text-center"  %}}
-
-## <span class="highlight"> I want to simulate the exact codebase that will run in the deployment </span>
-
-{{% /col %}}
-{{% /multicol %}}
-
+As a programmer I want to *switch arbitrarily* between execution and simulation, <br/> 
+when needed (for example in test automation).
 
 ---
 
-# Proposal & Research questions
+## Research questions
 
+<br/>
 
-* A tool that offers BDI abstractions, capable to run in a simulator *seamlessly*. 
-  
-  This proposal raises several questions that need to be investigated:
+### 1. Is the proposal feasible?
 
-  - How BDI events can be captured in simulation? *DES* vs.*DTS* 
-  - At which *granularity* should the BDI lifecycle *events* be captured in simulation abstractions?
+### 2. Tool choice
+- Which tools are suitable for this integration?
+  - The BDI tool must be *modular* to allow its execution inside a simulator
+  - The simulator abstractions must be *flexible* enough to model BDI upon it
+
+### 3. Mapping 
+- How BDI events can be captured in simulation? *DES* vs.*DTS* 
+- At which *granularity* BDI lifecycle *events* should be captured in simulation abstractions?
   - How to model the interaction with *environmental sources of change*?
   - How to preserve *determinism* to reproduce source of errors?
   - How to model *inter-agent communication* in a simulated environment?
-  - Which tools are suitable for this integration?
-    - The BDI tool must be *modular* to allow its execution inside a simulator
-    - The simulator abstractions must be *flexible* enough to model BDI upon it
+
 
 ---
 
-# Current Results
+## Current Results
+#### Feasibility and Tool Choice
 
-We provide an initial answer to these question through a practical prototype integrating the *JaKtA* BDI framework with the *Alchemist* simulator, 
+Initial answer to **1** and **2** research questions through a practical prototype <br/> 
+integrating the *JaKtA* BDI framework with the *Alchemist* simulator, <br/>
 showing that integration with no code changes to the BDI specification is feasible.
+
+<br/>
 
 {{% multicol %}}
 {{% col %}}
 
-### JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents [1]
+#### *JaKtA*: <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents [1]
 
-Internal Domain-Specific Language (DSL) implemented in Kotlin
+* BDI framework implemented in Kotlin
+* Tries to reduce the complexity gap for non-BDI programmers
+* <u>Architecture based on modularity</u>
 
-* Multi-paradigm support: OOP + FP + BDI AOP
-* Hosted on a mainstream language: gentle learning curve
-  * Great learning resources for Kotlin
-  * Significantly large community for help
-* Reuses the entire existing Kotlin toolchain
-  * Developed and *maintained* by the language maintainers and the community
-  * Maintenance is greatly reduced
-* Good ergonomy
+
+{{% /col %}}
+
+{{% col %}}
+
+#### *Alchemist* Simulator [2]
+
+- Simulator for pervasive, aggregate, and *nature-inspired* computing
+- Based on a *incarnation-agnostic* simulation *engine*
+- <u>Architecture based on modularity</u>
+
+{{% /col %}}
+{{% /multicol %}}
 
 <br />
 <br />
@@ -152,99 +184,72 @@ Internal Domain-Specific Language (DSL) implemented in Kotlin
 <div>
 <small style="text-align: left"> 
 ---<br/>
-[1] Baiardi, M., Burattini, S., Ciatto, G., & Pianini, D. (2023, September). JaKtA: BDI Agent-Oriented Programming in Pure Kotlin. 
+[1] Baiardi, M., Burattini, S., Ciatto, G., & Pianini, D. (2023, September). JaKtA: BDI Agent-Oriented Programming in Pure Kotlin. <br/>
+[2] Pianini, D., Montagna, S., & Viroli, M. (2013). Chemical-oriented simulation of computational systems with ALCHEMIST. Journal of Simulation, 7(3), 202–215.
 </small>
 </div>
 
-{{% /col %}}
+---
 
+## Current Results
+#### Mapping decisions
+
+
+{{% multicol %}}
 {{% col %}}
-### Alchemist
+
+<img src="images/samusversion.svg" />
+
+{{% /col %}}
+{{% col %}}
+
+<span class="px-5">
+
+- Discrete Event Simulator (*DES*) is a promising approach 
+  - since BDI is based on events
+- Different possible event granularity mappings identified
+  - Atomic MAS Advancements 
+  - Atomic Control-Loop Iterations
+  - Atomic Control-Loop Phase 
+  - Atomic BDI Event
+- BDI as a syntactical *extension* for the simulation 
+
+</span>
+
 {{% /col %}}
 {{% /multicol %}}
 
 ---
 
-# BDI Agent Programming Languages
-{{% fragment %}}
+{{% multicol %}}
+{{% col %}}
 
-### ... some of them
+## Future work
+JaKtA is still in its early stages, in the future we plan to: 
+* *Performance analysis* of the prototype
+* Adopt simulation for *Debugging* BDI systems:
+  * Breakpoints?
+  * Which abstractions show in the variable explorer   
+* *Distributed Simulation*
+* *Realtime monitoring* of distributed simulations
 
-{{% /fragment %}}
+{{% /col %}}
+{{% col class="text-center" %}}
 
+## JaKtA + Alchemist 
+### Prototype available!
 <br />
 
-{{< figure src="images/AOPlang.svg" width="50%" >}}
+[github.com/jakta-bdi/jakta](https://github.com/jakta-bdi/jakta)
 
-<br />
+<img src="images/jakta-repo.png" width="50%" />
 
-<div>
-<small style="text-align: left"> 
-[1] Collier, R.W., Russell, S.E., Lillis, D.. "Reflecting on agent programming with AgentSpeak(L). I" (2015) <br />
-[2] Hindriks, K.V.. "Programming rational agents in GOAL." (2009) <br />
-[3] Pokahr, A., Braubach, L., Lamersdorf, W.. "Jadex: A BDI reasoning engine." (2005) <br />
-[4] Bordini, R.H., Hübner, J.F., Wooldridge, M.J.. "Programming Multi-Agent Systems in AgentSpeak using Jason." (2007) <br />
-[5] D’Urso, F., Longo, C.F., Santoro, C.. "Programming intelligent iot systems with a python-based declarative tool." (2019) <br />
-[6] Palanca, J., Rincon, J.A., Carrascosa, C., Julián, V., Terrasa, A.. "A flexible agent architecture in SPADE." (2022)
-</small>
-</div>
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
-# Majority of BDI tools: Libraries
-
-<br>
-<br>
-
-{{% multicol class="text-center" %}} {{< col class="col-75">}}
-
-* Built for mainstream languages
-* Subject to the *syntactic restrictions* of their host language
-  * "True" AOP/BDI feeling hardly achieved
-
-{{< /col >}}
-
-{{< col class="col-25">}}
-
-{{< fragment >}}
-## <i class="fa-solid fa-arrow-right"></i> *custom language*
-{{< /fragment >}}
-
-{{< /col >}} {{% /multicol %}}
-
----
-
-# AOP Custom Languages
-
-<div>
-
-<div class=" w-50 m-auto text-right" style="text-align: left">
-
-<i class="fa-solid fa-check" style="color: green; margin-right: 10px"></i>
-Great ergonomy for BDI AOP (made by purpose)
-
-<i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
-BDI-specific, not multi-paradigm 
-
-<i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
-Steep learning curve
-
-<i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
-Require custom tooling - IDEs, code suggestions, syntax highlighters, linters...
-
-<i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
-Small community
-
-<i class="fa-solid fa-xmark" style="color: red; margin-right: 10px"></i>
-High maintenance cost!
-
-</div>
-
----
-
-# A hybrid approach
-
-{{< figure src="ergonomy.png" width="60%" >}} 
+## Thank you!
 
 ---
 
@@ -273,28 +278,7 @@ Internal Domain-Specific Language (DSL) implemented in Kotlin
 
 ---
 
-# Why kotlin?
-<br>
 
-{{% multicol %}}{{% col %}}
-* Natively multi-paradigm (OOP + FP)
-* Statically typed
-  * With a good IDE, helps understanding what can be written where
-* Direct support to internal DSLs
-  * a.k.a "Type-safe builders" in the Kotlin documentation
-* Support for multiplatform development
-{{% /col %}}
-
-{{< col class="text-center">}}
-
-* Growing community
-  * Strongly pushed by Google for Android
-{{< figure src="android-kotlin.png" width="70%" >}}
-
-{{% /col %}}{{% /multicol %}}
-
-
----
 
 ## Jakta: multi-paradigm AOP/BDI+OOP+FP
 
@@ -321,32 +305,3 @@ mas {                                                   // BDI specification
       }
 }.start()
 ```
-
----
-
-## Future work
-JaKtA is still in its early stages, in the future we plan to: 
-* Provide stable tools to emulate dynamic environments (**Simulation**)
-    * Validate the integration with an application, e.g.: drone swarm coordination (**Use case**) 
-* Expose BDI abstractions within the debugger for helping bug inspection (**Debug**)
-* Use BDI abstractions in small fragments of non-BDI programs (**Bidirectional paradigm blending**)
-    * (we can already use fragments of functional and OOP inside a BDI program)
-
----
-
-# try jakta
-<br>
-
-[github.com/jakta-bdi/jakta-examples](https://github.com/jakta-bdi/jakta-examples)
-
-<img src="images/qr-code.svg" width="20%" />
-
----
-
-## Thank you!
-
----
-
-## AgentSpeak(L) under the hood...
-
-<img src="images/architecture.png" width=50% />
