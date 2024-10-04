@@ -16,17 +16,16 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
-# <span class="highlight"> BDI </span>
+## Multi-Agent Systems
 
-## <span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions
 
 
 {{% multicol %}}
-{{% col %}}
+{{% col class="text-center col-4" %}}
 
-- It's a framework to model Multi-Agent Systems through *Goals*
-- Reduces the *abstraction gap* between *cognitive abstractions* and the abstractions of common paradigms
-  - Mimicking human-level notions such as *beliefs*, *desires* and *intentions*
+- autonomous entities 
+- capable to adapt their behaviour <br/>to external source of events
+
 
 {{% /col %}}
 {{% col class="text-center"  %}}
@@ -41,7 +40,7 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ## <span class="highlight">B</span>eliefs, <span class="highlight">D</span>esires, <span class="highlight">I</span>ntentions
 
-<br/>
+Framework to model Multi-Agent Systems through *Goals*, inspired from human-level notions
 
 {{% multicol %}}
 {{% col class="text-center" %}}
@@ -77,14 +76,17 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 </small>
 </div>
 
-
 ---
+
+# BDI software production process
+
+<br/>
 
 {{% multicol %}}
 {{% col class="text-center" %}}
 <img src="images/lab.png" />
 
-## development and testing
+## develop and testing
 
 {{% /col %}}
 {{% col class="text-center"  %}}
@@ -97,7 +99,7 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
   <i class="fa-solid fa-arrows-left-right" style="font-size:150px"></i> 
 </span>
 
-#### <span class="highlight"> How can I ensure the system <br/>works as expected?
+#### <span class="highlight"> How can I validate the system <br/> behaviour reliably?
 
 {{% /fragment %}}
 
@@ -112,16 +114,29 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
+## Answer: Simulation
+### Not a new idea...
+
+Multi-Agent-Based Simulation (*MABS*) is designed to simulate real-world behaviours, but not for testing a BDI system.
+
+Some limitations:
+- Abstraction gap between the BDI model and the simulator
+  - BDI developers have to maintain two parallel codebases
+    - **No guarantees that they have the same behaviour** 
+- Minimal support for *reproducibility*   
+  
+---
+
 ## Proposal:
 ### Simulation as a *validation* tool for BDI systems
 
 <br/>
 
-Simulate the *exact* BDI MAS codebase that will run in the deployment, <br />
-to determine if the system works as expected.
+* Simulate the *same* code that will be deployed
 
-As a programmer I want to *switch arbitrarily* between execution and simulation, <br/> 
-when needed (for example in test automation).
+* Reduce (or control) the *reality gap*
+
+* Make testing more robust and reliable
 
 ---
 
@@ -146,8 +161,7 @@ when needed (for example in test automation).
 
 ---
 
-## Current Results
-#### Feasibility and Tool Choice
+## 1. Feasibility and 2. Tool Choice
 
 Initial answer to **1** and **2** research questions through a practical prototype <br/> 
 integrating the *JaKtA* BDI framework with the *Alchemist* simulator, <br/>
@@ -162,7 +176,7 @@ showing that integration with no code changes to the BDI specification is feasib
 
 * BDI framework implemented in Kotlin
 * Tries to reduce the complexity gap for non-BDI programmers
-* <u>Architecture based on modularity</u>
+* <u>Modular architecture</u>
 
 
 {{% /col %}}
@@ -173,7 +187,7 @@ showing that integration with no code changes to the BDI specification is feasib
 
 - Simulator for pervasive, aggregate, and *nature-inspired* computing
 - Based on a *incarnation-agnostic* simulation *engine*
-- <u>Architecture based on modularity</u>
+- <u>Modular architecture</u>
 
 {{% /col %}}
 {{% /multicol %}}
@@ -191,8 +205,7 @@ showing that integration with no code changes to the BDI specification is feasib
 
 ---
 
-## Current Results
-#### Mapping decisions
+## 3. Mapping 
 
 
 {{% multicol %}}
@@ -207,12 +220,13 @@ showing that integration with no code changes to the BDI specification is feasib
 
 - Discrete Event Simulator (*DES*) is a promising approach 
   - since BDI is based on events
-- Different possible event granularity mappings identified
-  - Atomic MAS Advancements 
-  - Atomic Control-Loop Iterations
-  - Atomic Control-Loop Phase 
-  - Atomic BDI Event
-- BDI as a syntactical *extension* for the simulation 
+- We identify multiple event granularity mappings
+  - *Atomic MAS Advancements* 
+  - *Atomic Control-Loop Iterations*
+  - *Atomic Control-Loop Phase* 
+  - *Atomic BDI Event*
+- Alchemist abstract entities are implemented using JaKtA abstractions
+  - Support for dynamic granularity selection
 
 </span>
 
