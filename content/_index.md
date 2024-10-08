@@ -117,14 +117,34 @@ Framework to model Multi-Agent Systems through *Goals*, inspired from human-leve
 ## Answer: Simulation
 ### Not a new idea...
 
-Multi-Agent-Based Simulation (*MABS*) is designed to simulate real-world behaviours, but not for testing a BDI system.
+<br />
+
+
+{{% multicol %}}{{% col %}}
+
+#### BDI on top of Simulation
+
+Multi-Agent-Based Simulation (*MABS*) was initially designed to simulate real-world behaviours, but not for testing a BDI system.
 
 Some limitations:
 - Abstraction gap between the BDI model and the simulator
   - BDI developers have to maintain two parallel codebases
     - **No guarantees that they have the same behaviour** 
+
+{{% /col %}}{{% col %}}
+
+#### Simulation on top of BDI
+
+Custom implementation of a BDI execution backend
+
+Some limitations:
 - Minimal support for *reproducibility*   
-  
+- Doesn't capture the environment accurately
+
+{{% /col %}}
+
+{{% /multicol %}}
+
 ---
 
 ## Proposal:
