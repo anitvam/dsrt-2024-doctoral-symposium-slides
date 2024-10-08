@@ -90,7 +90,10 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
 </section><section>
 <h2 id="answer-simulation">Answer: Simulation</h2>
 <h3 id="not-a-new-idea">Not a new idea…</h3>
-<p>Multi-Agent-Based Simulation (<em>MABS</em>) is designed to simulate real-world behaviours, but not for testing a BDI system.</p>
+<br>
+
+<div class="multiCol "><div class="col col-50 "><h4 id="bdi-on-top-of-simulation">BDI on top of Simulation</h4>
+<p>Multi-Agent-Based Simulation (<em>MABS</em>) was initially designed to simulate real-world behaviours, but not for testing a BDI system.</p>
 <p>Some limitations:</p>
 <ul>
 <li>Abstraction gap between the BDI model and the simulator
@@ -102,8 +105,17 @@ Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
 </li>
 </ul>
 </li>
-<li>Minimal support for <em>reproducibility</em></li>
 </ul>
+</div>
+<div class="col col-50 "><h4 id="simulation-on-top-of-bdi">Simulation on top of BDI</h4>
+<p>Custom implementation of a BDI execution backend</p>
+<p>Some limitations:</p>
+<ul>
+<li>Minimal support for <em>reproducibility</em></li>
+<li>Doesn’t capture the environment accurately</li>
+</ul>
+</div>
+</div>
 </section><section>
 <h2 id="proposal">Proposal:</h2>
 <h3 id="simulation-as-a-validation-tool-for-bdi-systems">Simulation as a <em>validation</em> tool for BDI systems</h3>
